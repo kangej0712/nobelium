@@ -25,3 +25,23 @@ index 3a41f237f74ec4cecc26c853c45283710b2908ab..3fdaf22d01cd5e41be239cc1a52c6960
    }, rest)));
  };
  export {
+diff --git a/build/third-party/pdf.js b/build/third-party/pdf.js
+index 7b269ac..0000000 100644
+--- a/build/third-party/pdf.js
++++ b/build/third-party/pdf.js
+@@ -1,6 +1,7 @@
+-import React from 'react'
+-import { Document, Page } from 'react-pdf'
+-
+-export const PDF = ({ file }) => (
+-  <Document file={file}>
+-    <Page pageNumber={1} />
+-  </Document>
+-)
++// 🧹 Removed to avoid canvas error on Vercel (canvas is not supported)
++import React from 'react'
++
++export const PDF = ({ file }) => {
++  console.warn("PDF preview is disabled on Vercel due to canvas dependency.");
++  return <div>PDF preview not supported in this environment.</div>;
++};
